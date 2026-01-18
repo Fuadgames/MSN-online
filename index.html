@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MSN Online - Retro Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="overlay">
+        <div class="window aqua-gradient">
+            <div class="window-header"><span>MSN Online - Login</span></div>
+            <div class="window-body">
+                <img src="MSN1.png" alt="Logo" class="login-logo" id="preview-logo">
+                <p>Введите ваше имя для входа:</p>
+                <input type="text" id="username-input" placeholder="Имя пользователя...">
+                <button onclick="login()" class="aqua-btn">Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" class="hidden">
+        <div class="messenger-window aqua-gradient">
+            <div class="window-header">
+                <span id="app-title">MSN Online</span>
+                <div class="header-controls">
+                    <button onclick="toggleSettings()" class="tool-btn">⚙️</button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="user-info">
+                        <img src="MSN1.png" id="my-avatar" class="avatar">
+                        <b id="my-name">User</b>
+                    </div>
+                    <div class="contact-list" id="contacts">
+                        <div class="contact active" onclick="switchChat('Global Chat')">Глобальный чат</div>
+                        <div class="contact" onclick="switchChat('MSN AI')">MSN AI (Бот)</div>
+                    </div>
+                    <button class="add-contact-btn" onclick="addContactPrompt()">
+                        <img src="MSNC.png" alt="Add"> Добавить контакт
+                    </button>
+                </div>
+
+                <div class="chat-area">
+                    <div class="chat-header"><strong id="chat-with">Глобальный чат</strong></div>
+                    <div class="messages" id="messages-container">
+                        </div>
+                    <div class="input-area">
+                        <input type="text" id="msg-input" placeholder="Напишите сообщение...">
+                        <button onclick="sendMessage()" class="aqua-btn">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="overlay hidden">
+        <div class="window aqua-gradient">
+            <div class="window-header"><span>Настройки</span> <button onclick="toggleSettings()">X</button></div>
+            <div class="window-body">
+                <label>Сменить имя:</label>
+                <input type="text" id="new-name-input">
+                
+                <label>Язык:</label>
+                <select id="lang-select">
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                </select>
+
+                <label>Выберите аватар:</label>
+                <div class="avatar-picker">
+                    <img src="MSN1.png" onclick="setAvatar('MSN1.png')">
+                    <img src="MSN2.png" onclick="setAvatar('MSN2.png')">
+                    <img src="MSN3.png" onclick="setAvatar('MSN3.png')">
+                    <img src="MSN4.png" onclick="setAvatar('MSN4.png')">
+                    <img src="MSN5.png" onclick="setAvatar('MSN5.png')">
+                </div>
+                <button onclick="saveSettings()" class="aqua-btn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
